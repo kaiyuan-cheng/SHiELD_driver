@@ -742,6 +742,7 @@ module module_physics_driver
               Sfcprop%fice(i) = Statein%ci(i)
               Sfcprop%slmsk(i) = 2
               Sfcprop%hice(i) = 0.1 !minimum value
+              Sfcprop%tisfc(i) = Statein%sst(i)
            elseif (nint(Sfcprop%slmsk(i)) == 2) then
               if (Statein%ci(i) < 0.15) then ! Remove sea ice and associated snow
                  Sfcprop%slmsk(i) = 0
@@ -751,6 +752,7 @@ module module_physics_driver
                  Sfcprop%weasd(i) = 0.0
               else
                  Sfcprop%fice(i) = Statein%ci(i)
+                 Sfcprop%tisfc(i) = Statein%sst(i)
               endif
               
            endif
